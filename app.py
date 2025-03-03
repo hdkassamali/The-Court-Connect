@@ -15,7 +15,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = False
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
-toolbar = DebugToolbarExtension(app)
+# toolbar = DebugToolbarExtension(app)
 
 api_key = os.getenv("GOOGLE_MAPS_API_KEY")
 
