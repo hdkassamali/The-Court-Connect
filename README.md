@@ -1,4 +1,4 @@
-# 🏀 The Court Connect 🏀
+# 🏀 [The Court Connect](https://thecourtconnect.onrender.com) 🏀
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 The Court Connect is a full-stack Flask web application that connects basketball enthusiasts with local courts. Users can register, log in, and search for basketball courts via the Google Maps API. They can then save their favorite courts to their profile and rate them. 
 
