@@ -1,5 +1,6 @@
 # 🏀 [The Court Connect](https://thecourtconnect.onrender.com) 🏀
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+![Screenshot of Court Search](static/images/brooklyn-search-court-connect.png)
+
 
 ## 📝 Description
 The Court Connect is a full-stack Flask web application that connects basketball enthusiasts with basketball courts around the world. Users can register, log in, and search for basketball courts via the Google Maps API. They can then save their favorite courts to their profile and rate them. 
@@ -80,11 +81,17 @@ flask run
 pytest
 ```
 **Front-End Tests**
-- Open the SpecRunner.html file in your browser to run the Jasmine tests for front-end JavaScript functions.
+- Open the `SpecRunner.html` file in your browser to run the Jasmine tests for front-end JavaScript functions.
 
 ## 🌐 Deployment & Hosting
-The Court Connect is deployed on **Render** using the free tier, which spins down after 15 minutes of inactivity. To keep the app responsive, **UptimeRobot** is set up to ping the site every 14 minutes to prevent cold starts.
+[The Court Connect](https://thecourtconnect.onrender.com/) is deployed on **Render** using the free tier, which spins down after 15 minutes of inactivity. To keep the app responsive, **UptimeRobot** is set up to ping the site every 14 minutes to prevent cold starts. The PostgreSQL database is hosted on **Neon**, providing a serverless, always-on backend for persistent data storage.
 
 ### Hosting:
-- 🌍 Render: [TheCourtConnect](https://thecourtconnect.onrender.com/)
-- 🔄 Keep-Alive Service: [UptimeRobot](https://uptimerobot.com/) (pings every 14 min)
+- 🌍 Render: [Cloud application hosting platform](https://render.com/)
+- 🗄️ **Neon** – [Serverless PostgreSQL database](https://neon.tech/)
+- 🔄 UptimeRobot: [Keep-Alive Service](https://uptimerobot.com/) (pings every 14 min)
+
+## License:
+This project is licensed under the MIT License. 
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE.md)
