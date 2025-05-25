@@ -15,6 +15,13 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_ECHO"] = False
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_pre_ping": True,
+    "pool_recycle": 300,
+    "pool_timeout": 30,
+    "max_overflow": 10,
+    "pool_size": 5
+}
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
 # toolbar = DebugToolbarExtension(app)
@@ -33,7 +40,21 @@ def add_user_to_g():
     """If a user is logged in, add curr user to Flask global."""
 
     if CURR_USER_KEY in session:
-        g.user = User.query.get(session[CURR_USER_KEY])
+        retry_count = 0
+        max_retries = 3
+        while retry_count < max_retries:
+            try:
+                g.user = User.query.get(session[CURR_USER_KEY])
+                break
+            except Exception as e:
+                retry_count += 1
+                app.logger.error(f"Database connection error (attempt {retry_count}): {str(e)}")
+                if retry_count >= max_retries:
+                    app.logger.error("Max retries reached, logging user out")
+                    if CURR_USER_KEY in session:
+                        del session[CURR_USER_KEY]
+                    g.user = None
+                    flash("An error occurred with your session. Please log in again.", "danger")
     else:
         g.user = None
 
