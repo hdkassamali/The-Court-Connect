@@ -78,7 +78,7 @@ flask run
  **Back-End Tests**
 - Run the Pytest suite to verify back-end functionality
 ```
-pytest
+pytest -v
 ```
 **Front-End Tests**
 - Open the `SpecRunner.html` file in your browser to run the Jasmine tests for front-end JavaScript functions.
